@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  node_app1:
+    build: .
+    container_name: node_app1
+    ports:
+      - "3001:3000"
+
+  node_app2:
+    build: .
+    container_name: node_app2
+    ports:
+      - "3002:3000"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      - node_app1
+      - node_app2
