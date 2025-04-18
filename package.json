@@ -8,9 +8,19 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^4.21.2",
-    "os": "^0.1.2"
-  }
+    "os": "^0.1.2",
+    "protobufjs": "^7.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laleet-KunaiCoder/System-Design.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Laleet-KunaiCoder/System-Design/issues"
+  },
+  "homepage": "https://github.com/Laleet-KunaiCoder/System-Design#readme",
+  "description": ""
 }
