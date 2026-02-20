@@ -4,14 +4,16 @@ services:
   node_app1:
     build: .
     container_name: node_app1
-    ports:
-      - "3001:3000"
+
 
   node_app2:
     build: .
     container_name: node_app2
-    ports:
-      - "3002:3000"
+
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
 
   nginx:
     image: nginx:latest
@@ -23,3 +25,4 @@ services:
     depends_on:
       - node_app1
       - node_app2
+      - frontend
