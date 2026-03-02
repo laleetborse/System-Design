@@ -22,57 +22,37 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-20 pb-10"
+      className="isolate relative min-h-screen flex flex-col justify-between overflow-hidden pt-20 pb-10"
     >
-      {/* SVG grain filter */}
-      <svg className="absolute w-0 h-0">
-        <filter id="grain">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.65"
-            numOctaves="3"
-            stitchTiles="stitch"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </svg>
-
-      {/* Gradient orb with grain */}
-      <div className="absolute inset-0 flex items-center justify-center -z-10">
-        <div className="relative w-[min(80vw,600px)] aspect-square">
-          <div
-            className="absolute inset-0 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 40% 40%, #ec4899 0%, #f472b6 25%, #fb923c 55%, #fde68a 80%, transparent 100%)",
-              filter: "blur(60px)",
-              opacity: 0.7,
-            }}
-          />
-          <div
-            className="dark:hidden absolute inset-0 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 40% 40%, #ec4899 0%, #f472b6 25%, #fb923c 55%, #fde68a 80%, transparent 100%)",
-              filter: "blur(40px)",
-              opacity: 0.35,
-            }}
-          />
-          <div
-            className="hidden dark:block absolute inset-0 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 40% 40%, #ec4899 0%, #f472b6 25%, #fb923c 55%, #fde68a 80%, transparent 100%)",
-              filter: "blur(40px)",
-              opacity: 0.25,
-            }}
-          />
-          {/* Grain texture overlay */}
-          <div
-            className="absolute -inset-[20%] opacity-50 dark:opacity-40 mix-blend-overlay pointer-events-none"
-            style={{ filter: "url(#grain)" }}
-          />
-        </div>
+      {/* Gradient background – right side */}
+      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+        {/* Top-right blob */}
+        <div
+          className="absolute -top-1/4 -right-1/6 w-[60%] h-[70%] opacity-30 dark:opacity-15"
+          style={{
+            background: "conic-gradient(from 160deg at 50% 50%, #7c3aed, #f200b9, #ff3681, transparent)",
+            filter: "blur(90px)",
+            borderRadius: "40% 60% 55% 45% / 55% 40% 60% 45%",
+          }}
+        />
+        {/* Mid-right blob */}
+        <div
+          className="absolute top-1/4 -right-1/12 w-[45%] h-[50%] opacity-25 dark:opacity-12"
+          style={{
+            background: "conic-gradient(from 220deg at 40% 60%, #ff3681, #ff8456, #ffc349, transparent)",
+            filter: "blur(80px)",
+            borderRadius: "55% 45% 40% 60% / 45% 55% 45% 55%",
+          }}
+        />
+        {/* Bottom-right glow */}
+        <div
+          className="absolute -bottom-1/6 right-1/6 w-[40%] h-[45%] opacity-20 dark:opacity-10"
+          style={{
+            background: "conic-gradient(from 300deg at 60% 40%, #ffc349, #f9f871, #ff8456, transparent)",
+            filter: "blur(70px)",
+            borderRadius: "45% 55% 60% 40% / 50% 45% 55% 50%",
+          }}
+        />
       </div>
 
       {/* Top: headline */}
@@ -152,10 +132,10 @@ export default function Hero() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl text-fg-muted hover:text-accent hover:bg-accent/5 transition-all duration-200"
+                className="p-2.5 rounded-xl text-fg-secondary hover:text-accent hover:bg-accent/10 transition-all duration-200"
                 aria-label={label}
               >
-                <Icon size={18} />
+                <Icon size={20} />
               </a>
             ))}
           </div>
