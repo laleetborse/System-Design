@@ -45,20 +45,20 @@ docker builder prune -f
 The Dockerfile uses a **multi-stage build** -- two completely separate stages:
 
 ```
-┌─────────────────────────────────────────────────┐
-│  STAGE 1: "build" (node:22-alpine)              │
+┌──────────────────────────────────────────────────┐
+│  STAGE 1: "build" (node:22-alpine)               │
 │                                                  │
 │  1. Copies package.json                          │
 │  2. Runs npm install (178 packages, ~200MB)      │
 │  3. Copies source code                           │
 │  4. Runs vite build → outputs /app/dist (~400KB) │
 │                                                  │
-│  ❌ This entire stage is DISCARDED after build    │
+│   This entire stage is DISCARDED after build     │
 │     Node.js, node_modules, source code — gone.   │
-└──────────────────────┬──────────────────────────┘
+└──────────────────────┬───────────────────────────┘
                        │ only /app/dist is copied
                        ▼
-┌─────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────┐
 │  STAGE 2: final image (nginx:alpine-slim)        │
 │                                                  │
 │  1. Copies /app/dist → /usr/share/nginx/html     │
@@ -66,8 +66,8 @@ The Dockerfile uses a **multi-stage build** -- two completely separate stages:
 │  3. Creates non-root user "app"                  │
 │  4. Serves static files on port 80               │
 │                                                  │
-│  ✅ Final image: ~14MB (nginx + your HTML/JS/CSS)│
-└─────────────────────────────────────────────────┘
+│   Final image: ~14MB (nginx + your HTML/JS/CSS)  │
+└──────────────────────────────────────────────────┘
 ```
 
 **Why multi-stage?** Without it, the image would include Node.js, npm, and all `node_modules` (~400MB+). Multi-stage gives you a production image that's **14MB** -- just the web server and your compiled assets.

@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { socialLinks } from "../constants/data";
 
 const contactInfo = [
-  { icon: HiMail, label: "Email", value: "laleet.borse@gmail.com", href: socialLinks.email },
+  { icon: HiMail, label: "Email", value: "laleetsb2002@gmail.com", href: socialLinks.email },
   { icon: HiLocationMarker, label: "Location", value: "Bengaluru, India", href: "https://maps.app.goo.gl/pymRqdgRs98W3cAT6" },
 ];
 
