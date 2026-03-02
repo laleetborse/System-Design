@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 import { socialLinks } from "../constants/data";
+import { SiLeetcode } from "react-icons/si";
 
 function getExperience() {
   const start = new Date(2024, 3); // April 2024
@@ -125,7 +128,8 @@ export default function Hero() {
             {[
               { icon: FaGithub, href: socialLinks.github, label: "GitHub" },
               { icon: FaLinkedin, href: socialLinks.linkedin, label: "LinkedIn" },
-              { icon: FaTwitter, href: socialLinks.twitter, label: "Twitter" },
+              { icon: FaXTwitter, href: socialLinks.x, label: "X"},
+              { icon: SiLeetcode, href: socialLinks.leetcode, label: "LeetCode"},
             ].map(({ icon: Icon, href, label }) => (
               <a
                 key={label}

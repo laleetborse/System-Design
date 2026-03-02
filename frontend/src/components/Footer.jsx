@@ -1,10 +1,11 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { socialLinks, navLinks } from "../constants/data";
 
 const socials = [
   { icon: FaGithub, href: socialLinks.github, label: "GitHub" },
   { icon: FaLinkedin, href: socialLinks.linkedin, label: "LinkedIn" },
-  { icon: FaTwitter, href: socialLinks.twitter, label: "Twitter" },
+  { icon: FaXTwitter, href: socialLinks.x, label: "X"},
 ];
 
 export default function Footer() {

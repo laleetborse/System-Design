@@ -89,6 +89,7 @@ export const projects = [
 export const socialLinks = {
   github: "https://github.com/laleetborse",
   linkedin: "https://www.linkedin.com/in/laleetborse/",
-  twitter: "https://twitter.com",
+  x: "https://x.com/LaleetBorse",
   email: "mailto:laleetsb2002@gmail.com",
+  leetcode: "https://leetcode.com/laleetborse/",
 };
